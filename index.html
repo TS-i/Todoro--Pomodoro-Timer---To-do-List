@@ -2,17 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="/main.js"></script>
     <title>Todoro - Pomodoro Timer & To-Do List</title>
   </head>
   <body>
-    <div id="app"></div>
-    <h1>Todoro</h1>
-    <p id="clock">25:00</p>
-    <button id="startStop">Start</button>
-    <button id="reset">Reset</button>
+    <div class="header">
+      <h1>Todoro</h1>
+      <p id="pomCounter">Pomodoro Counter :</p>
+    </div>
+    <div id="timer">
+      <p id="clock">25:00</p>
+      <button id="startStop">Start</button>
+      <button id="reset">Reset</button>
+    </div>
+    <div id="todoList">
+      <h3>To-Do List</h3>
+      <input type="text" id="myInput" placeholder="Write Task Here...">
+      <button id="addBtn"><i class="fa fa-plus"></i> Add</button>
+      <ul id="todo">
+        <li>Keep Track of Tasks Here</li>
+        <li class="checked">Check Them Off When Complete</li>
+      </ul>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
