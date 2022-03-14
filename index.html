@@ -2,20 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todoro - Pomodoro Timer & To-Do List</title>
   </head>
   <body>
+    <div class="topnav">
+      <h1 id="topLogo">TODORO</h1>
+      
+      <!-- Trigger/Open The Modal -->
+      <i id="help" class="fa fa-circle-question"></i>
+      
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+      
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="closemodal"></span>
+          <p>Todoro is a pomodoro timer & To-Do list that works in your web browser. The aim of this app is to help you focus on any task you are working on. This app is inspired by the Pomodoro Technique which is a time management method developed by Francesco Cirillo. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student.</p>
+          <h4>Click Outside of the box to close this window</h4>
+        </div>
+      
+      </div>
+    </div>
     <div class="header">
-      <h1>Todoro</h1>
       <p id="pomCounter">Pomodoro Counter :</p>
     </div>
     <div id="timer">
+      <div class="timerNav">
+        <a href="" id="workBtn" class="active">Work-Time</a>
+        <a href="" id="breakBtn">Break-Time</a>
+      </div>
       <p id="clock">25:00</p>
-      <button id="startStop">Start</button>
-      <button id="reset">Reset</button>
+      <button id="startStop">START</button>
+      <i id ="reset" class="fa fa-rotate-left"></i>
     </div>
     <div id="todoList">
       <h3>To-Do List</h3>

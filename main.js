@@ -1,5 +1,38 @@
 import './style.css'
 
+//--Modal Popup--//
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("help");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("closemodal");
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+//--Timer Navigation--//
+var workBtn = document.querySelector('#workBtn');
+var breakBtn = document.querySelector('#breakBtn');
+
+workBtn.addEventListener('click', changeWork);
+breakBtn.addEventListener('click', changeBreak);
+
+function changeBreak(){
+  
+}
+
 //--Timer Code--//
 // Get Timer buttons from HTML
 var startStopButton = document.querySelector('#startStop');
@@ -38,8 +71,8 @@ function startTimer(){
   console.log("Started");
   startStopButton.removeEventListener("click", startTimer);
   startStopButton.addEventListener("click", stopTimer);
-  startStopButton.value = "Stop";
-  startStopButton.innerHTML = "Stop";
+  startStopButton.value = "STOP";
+  startStopButton.innerHTML = "STOP";
 }
 
 // Stop Timer Button
@@ -48,8 +81,8 @@ function stopTimer(){
   console.log("Stopped");
   startStopButton.removeEventListener("click", stopTimer);
   startStopButton.addEventListener("click", startTimer);
-  startStopButton.value = "Start";
-  startStopButton.innerHTML = "Start";
+  startStopButton.value = "START";
+  startStopButton.innerHTML = "START";
 }
 
 // Reset Timer Button
@@ -61,8 +94,8 @@ function resetTimer(){
   console.log("Timer Stopped & Reset");
   startStopButton.removeEventListener("click", stopTimer);
   startStopButton.addEventListener("click", startTimer);
-  startStopButton.value = "Start";
-  startStopButton.innerHTML = "Start";
+  startStopButton.value = "START";
+  startStopButton.innerHTML = "START";
 }
 
 //--To-Do List Code--//

@@ -1,19 +1,76 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+body {
+  font-family: 'Source Code Pro', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-/* Include the padding and border in an element's total width and height */
-* {
-  box-sizing: border-box;
-}
-
-body{
+  color: white;
   margin: 5vw;
   padding: 5vw;
+  background-color: #4a0ab2;
+}
+
+/* Top Nav */
+#topLogo{
+  display: inline;
+}
+.topnav{
+  position: relative;
+}
+.topnav i{
+  background-color: rgb(107, 15, 255, 0.8);
+}
+#help{
+  display: inline;
+  float: right;
+  padding: 2vw;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Style the header */
+.header {
+  color: white;
+  text-align: center;
+}
+
+/* Timer Navigation */
+.timerNav{
+  padding-top: 3vw;
+}
+.timerNav a{
+  font-size: 16px;
+  padding: 5px;
+  color: white;
+  text-decoration: none;
+}
+.timerNav a.active{
+  background-color: #4a0ab2;
+  border-radius: 10px;
+}
+.timerNav a:hover{
+  font-size: 16px;
+  color: black;
+  background-color: rgb(107, 15, 255, 0.8);
+  border-radius: 10px;
+}
+/* Timer */
+#timer{
+  text-align: center;
+  background-color: rgb(107, 15, 255, 0.8);
+  border-radius: 10px;
+}
+#timer button{
+  text-decoration: none;
+  color: #4a0ab2;
+  background-color: white;
+  font-size: 16px;
+  font-weight: bolder;
+  margin-bottom: 3vw;
+}
+#clock{
+  font-size: 75px;
+  font-weight: bolder;
+  margin: 5vw;
 }
 
 /* Remove margins and padding from the list */
@@ -31,6 +88,10 @@ ul li {
   font-size: 16px;
   transition: 0.2s;
   list-style: none;
+  color: #4a0ab2;
+  font-weight: bolder;
+  text-align: left;
+
 
   /* make the list items unselectable */
   -webkit-user-select: none;
@@ -77,31 +138,74 @@ ul li.checked::before {
   top: 0;
   padding: 12px 16px 12px 16px;
 }
-
 .close:hover {
   background-color: #f44336;
   color: white;
 }
 
-/* Style the header */
-.header {
-  background-color: #6b0fff;
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
-}
-
-/* Clear floats after the header */
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* Style the input */
 input {
-  margin: 0;
-  border: none;
-  border-radius: 0;
+  margin-bottom: 2vw;
+  border-color: white;
+  border-width: 2px;  font-size: 20px;
+  color: white;
+  background-color: #4a0ab2;
+}
+::placeholder{
+  color: white;
+}
+#addBtn{
+  text-decoration: none;
+  border-color: white;
+  border-width: 2px;
+  color: white;
+  background-color: #4a0ab2;
   font-size: 16px;
+}
+/*Media Queries*/
+@media screen and (max-width: 1980px){
+  body{
+    margin: 2vw;
+  padding: 2vw;
+  }
+  #help{
+    padding:1vw;
+  }
+}
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; 
+  color:#4a0ab2;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #4a0ab2;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 80%; 
+}
+.modal-content p{
+  background-color: white;
+  padding: 2vw;
+  border-radius: 5px;
+}
+.modal-content h4{
+  color: white;
+  margin: 0;
 }
