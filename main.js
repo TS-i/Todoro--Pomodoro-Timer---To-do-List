@@ -29,8 +29,24 @@ var breakBtn = document.querySelector('#breakBtn');
 workBtn.addEventListener('click', changeWork);
 breakBtn.addEventListener('click', changeBreak);
 
+function changeWork(){
+  min = 25;
+  sec = '00';
+  clock.innerHTML=min+':'+sec;
+  document.documentElement.style.setProperty('--main-color', '#4a0ab2');
+  document.documentElement.style.setProperty('--hover-color', 'rgb(107, 15, 255, 0.8)');
+  document.getElementById('workBtn').className = 'active';
+  document.getElementById('breakBtn').className = '';
+}
+
 function changeBreak(){
-  
+  min = 5;
+  sec = '00';
+  clock.innerHTML=min+':'+sec;  
+  document.documentElement.style.setProperty('--main-color', '#d64700');
+  document.documentElement.style.setProperty('--hover-color', '#e8714a');
+  document.getElementById('workBtn').className = '';
+  document.getElementById('breakBtn').className = 'active';
 }
 
 //--Timer Code--//
@@ -43,8 +59,8 @@ startStopButton.addEventListener('click', startTimer);
 resetButton.addEventListener('click', resetTimer);
 
 // Get Pom counter from HTML
-var pomCounter = document.querySelector("#pomCounter");
-var pomCount = 0;
+// var pomCounter = document.querySelector("#pomCounter");
+// var pomCount = 0;
 
 // Set up Timer Variable for later use
 let intervalID = null;
@@ -60,8 +76,8 @@ var timer = function(){
         sec=59;
     } else if (min == 0 && sec == 0){
       resetTimer();
-      pomCount++;
-      pomCounter.innerHTML="Pomodoro Counter : " + pomCount;
+      //pomCount++;
+      //pomCounter.innerHTML="Pomodoro Counter : " + pomCount;
     }
 };
 

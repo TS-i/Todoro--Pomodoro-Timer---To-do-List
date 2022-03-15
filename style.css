@@ -1,3 +1,8 @@
+:root{
+  --main-color: #4a0ab2;
+  --hover-color: rgb(107, 15, 255, 0.8);
+}
+
 body {
   font-family: 'Source Code Pro', monospace;
   -webkit-font-smoothing: antialiased;
@@ -6,7 +11,7 @@ body {
   color: white;
   margin: 5vw;
   padding: 5vw;
-  background-color: #4a0ab2;
+  background-color: var(--main-color);
 }
 
 /* Top Nav */
@@ -15,9 +20,14 @@ body {
 }
 .topnav{
   position: relative;
+  text-align: center;
+  padding-bottom: 5vw;
+  margin: auto;
 }
 .topnav i{
-  background-color: rgb(107, 15, 255, 0.8);
+  background-color: var(--hover-color);
+  top: 2vw;
+  right: 2vw;
 }
 #help{
   display: inline;
@@ -35,40 +45,43 @@ body {
 
 /* Timer Navigation */
 .timerNav{
-  padding-top: 3vw;
+  padding-top: 5vw;
 }
-.timerNav a{
+.timerNav p{
   font-size: 16px;
   padding: 5px;
   color: white;
   text-decoration: none;
+  display: inline;
 }
-.timerNav a.active{
-  background-color: #4a0ab2;
+.timerNav p.active{
+  background-color: var(--main-color);
   border-radius: 10px;
 }
-.timerNav a:hover{
-  font-size: 16px;
-  color: black;
-  background-color: rgb(107, 15, 255, 0.8);
+.timerNav p:hover{
+  text-decoration: underline;
   border-radius: 10px;
+}
+.timerNav p:hover.active{
+  text-decoration: none;
 }
 /* Timer */
 #timer{
   text-align: center;
-  background-color: rgb(107, 15, 255, 0.8);
+  background-color: var(--hover-color);
   border-radius: 10px;
 }
+
 #timer button{
   text-decoration: none;
-  color: #4a0ab2;
+  color: var(--main-color);
   background-color: white;
   font-size: 16px;
   font-weight: bolder;
-  margin-bottom: 3vw;
+  margin-bottom: 5vw;
 }
 #clock{
-  font-size: 75px;
+  font-size: 100px;
   font-weight: bolder;
   margin: 5vw;
 }
@@ -88,7 +101,7 @@ ul li {
   font-size: 16px;
   transition: 0.2s;
   list-style: none;
-  color: #4a0ab2;
+  color: var(--main-color);
   font-weight: bolder;
   text-align: left;
 
@@ -150,7 +163,7 @@ input {
   border-color: white;
   border-width: 2px;  font-size: 20px;
   color: white;
-  background-color: #4a0ab2;
+  background-color: var(--main-color);
 }
 ::placeholder{
   color: white;
@@ -160,7 +173,7 @@ input {
   border-color: white;
   border-width: 2px;
   color: white;
-  background-color: #4a0ab2;
+  background-color: var(--main-color);
   font-size: 16px;
 }
 /*Media Queries*/
@@ -172,6 +185,10 @@ input {
   #help{
     padding:1vw;
   }
+  .topnav i{
+    top: 1vw;
+    right: 1vw;
+  }
 }
 
 
@@ -179,7 +196,7 @@ input {
 /* The Modal (background) */
 .modal {
   display: none; 
-  color:#4a0ab2;
+  color:var(--main-color);
   position: fixed; 
   z-index: 1; 
   left: 0;
@@ -193,7 +210,7 @@ input {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #4a0ab2;
+  background-color: var(--main-color);
   margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
