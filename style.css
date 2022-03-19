@@ -12,6 +12,7 @@ body {
   margin: 5vw;
   padding: 5vw;
   background-color: var(--main-color);
+  transition: all .5s ease-in-out;
 }
 
 /* Top Nav */
@@ -28,6 +29,7 @@ body {
   background-color: var(--hover-color);
   top: 2vw;
   right: 2vw;
+  transition: all .5s ease-in-out;
 }
 #help{
   display: inline;
@@ -57,6 +59,7 @@ body {
 .timerNav p.active{
   background-color: var(--main-color);
   border-radius: 10px;
+  transition: all .5s ease-in-out;
 }
 .timerNav p:hover{
   text-decoration: underline;
@@ -70,6 +73,7 @@ body {
   text-align: center;
   background-color: var(--hover-color);
   border-radius: 10px;
+  transition: all .5s ease-in-out;
 }
 
 #timer button{
@@ -79,11 +83,78 @@ body {
   font-size: 16px;
   font-weight: bolder;
   margin-bottom: 5vw;
+  padding: 1vw 2vw;
+  transition: all .5s ease-in-out;
 }
 #clock{
   font-size: 100px;
   font-weight: bolder;
   margin: 5vw;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: block;
+  visibility: hidden;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  visibility: hidden;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 /* Remove margins and padding from the list */
@@ -99,7 +170,7 @@ ul li {
   padding: 12px 8px 12px 35px;
   background: #eee;
   font-size: 16px;
-  transition: 0.2s;
+  transition: 0.5s;
   list-style: none;
   color: var(--main-color);
   font-weight: bolder;
@@ -164,6 +235,7 @@ input {
   border-width: 2px;  font-size: 20px;
   color: white;
   background-color: var(--main-color);
+  transition: all .5s ease-in-out;
 }
 ::placeholder{
   color: white;
@@ -174,6 +246,7 @@ input {
   border-width: 2px;
   color: white;
   background-color: var(--main-color);
+  transition: all .5s ease-in-out;
   font-size: 16px;
 }
 /*Media Queries*/
@@ -188,6 +261,9 @@ input {
   .topnav i{
     top: 1vw;
     right: 1vw;
+  }
+  #timer button{
+    padding: .5vw 1vw;
   }
 }
 
@@ -205,7 +281,7 @@ input {
   height: 100%; 
   overflow: auto; 
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -221,6 +297,10 @@ input {
   background-color: white;
   padding: 2vw;
   border-radius: 5px;
+}
+.modal-content h2{
+  color: white;
+  margin: 0;
 }
 .modal-content h4{
   color: white;

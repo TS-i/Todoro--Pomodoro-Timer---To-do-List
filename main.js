@@ -112,6 +112,7 @@ function resetTimer(){
   startStopButton.addEventListener("click", startTimer);
   startStopButton.value = "START";
   startStopButton.innerHTML = "START";
+  changeWork();
 }
 
 //--To-Do List Code--//
