@@ -25,6 +25,7 @@ window.onclick = function(event) {
 //--Timer Navigation--//
 var workBtn = document.querySelector('#workBtn');
 var breakBtn = document.querySelector('#breakBtn');
+const favicon = document.querySelector('#favicon');
 
 workBtn.addEventListener('click', changeWork);
 breakBtn.addEventListener('click', changeBreak);
@@ -33,6 +34,7 @@ function changeWork(){
   min = 25;
   sec = '00';
   clock.innerHTML=min+':'+sec;
+  favicon.setAttribute("href","faviconPurple.svg");
   document.documentElement.style.setProperty('--main-color', '#4a0ab2');
   document.documentElement.style.setProperty('--hover-color', 'rgb(107, 15, 255, 0.8)');
   document.getElementById('workBtn').className = 'active';
@@ -43,6 +45,7 @@ function changeBreak(){
   min = 5;
   sec = '00';
   clock.innerHTML=min+':'+sec;  
+  favicon.setAttribute("href","faviconOrange.svg");
   document.documentElement.style.setProperty('--main-color', '#d64700');
   document.documentElement.style.setProperty('--hover-color', '#e8714a');
   document.getElementById('workBtn').className = '';
@@ -66,19 +69,33 @@ resetButton.addEventListener('click', resetTimer);
 let intervalID = null;
 
 // Build Timer Function
-var sec = '00';
+var sec = '00'.padStart(2, "0");
 var min = 25;
+// var timer = function(){
+//     clock.innerHTML=min+':'+sec;
+//     sec--;
+//     if (sec < 0) {
+//         min--;
+//         sec=59;
+//     } else if (min == 0 && sec == 0){
+//       resetTimer();
+//       //pomCount++;
+//       //pomCounter.innerHTML="Pomodoro Counter : " + pomCount;
+//     }
+// };
 var timer = function(){
-    clock.innerHTML=min+':'+sec;
-    sec--;
-    if (sec < 0) {
-        min--;
-        sec=59;
-    } else if (min == 0 && sec == 0){
-      resetTimer();
-      //pomCount++;
-      //pomCounter.innerHTML="Pomodoro Counter : " + pomCount;
-    }
+  sec--;
+  clock.innerHTML=min+':'+sec;
+  if (sec < 0){
+      min--;
+      sec=59;
+  } else if (sec < 10) {
+      clock.innerHTML=min+':0'+sec;
+  } else if (min == 0 && sec == 0){
+    resetTimer();
+    //pomCount++;
+    //pomCounter.innerHTML="Pomodoro Counter : " + pomCount;
+  }
 };
 
 // Start Timer Button
