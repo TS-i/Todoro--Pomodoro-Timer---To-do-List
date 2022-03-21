@@ -71,27 +71,15 @@ let intervalID = null;
 // Build Timer Function
 var sec = '00'.padStart(2, "0");
 var min = 25;
-// var timer = function(){
-//     clock.innerHTML=min+':'+sec;
-//     sec--;
-//     if (sec < 0) {
-//         min--;
-//         sec=59;
-//     } else if (min == 0 && sec == 0){
-//       resetTimer();
-//       //pomCount++;
-//       //pomCounter.innerHTML="Pomodoro Counter : " + pomCount;
-//     }
-// };
 var timer = function(){
   sec--;
   clock.innerHTML=min+':'+sec;
   if (sec < 0){
       min--;
       sec=59;
-  } else if (sec < 10) {
+  } if (sec < 10) {
       clock.innerHTML=min+':0'+sec;
-  } else if (min == 0 && sec == 0){
+  } if (min == 0 && sec == 0){
     resetTimer();
     //pomCount++;
     //pomCounter.innerHTML="Pomodoro Counter : " + pomCount;
