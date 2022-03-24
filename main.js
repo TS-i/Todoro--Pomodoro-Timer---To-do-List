@@ -1,5 +1,3 @@
-import './style.css'
-
 //--Modal Popup--//
 // Get the modal
 var modal = document.getElementById("myModal");

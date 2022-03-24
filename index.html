@@ -9,6 +9,314 @@
     <link id ="favicon" rel="icon" type="image/svg+xml" href="faviconPurple.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todoro - Pomodoro Timer & To-Do List</title>
+    <style>
+    :root{
+      --main-color: #4a0ab2;
+      --hover-color: rgb(107, 15, 255, 0.8);
+    }
+    
+    body {
+      font-family: 'Varela Round', sans-serif;  -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      color: white;
+      margin: 0px 20px 20px 20px;
+      padding: 20px;
+      position: static;
+      width: 350px;
+      height: 450px;
+      background-color: var(--main-color);
+      transition: all .5s ease-in-out;
+    }
+    
+    /* Top Nav */
+    #topLogo{
+      display: inline;
+    }
+    .topnav{
+      position: relative;
+      text-align: center;
+      padding-bottom: 20px;
+      margin: auto;
+    }
+    .topnav i{
+      background-color: var(--hover-color);
+      top: 10px;
+      right: 10px;
+      transition: all .5s ease-in-out;
+    }
+    #help{
+      display: inline;
+      float: right;
+      padding: 5px;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    /* Style the header */
+    .header {
+      color: white;
+      text-align: center;
+    }
+    
+    /* Timer Navigation */
+    .timerNav{
+      padding-top: 25px;
+    }
+    .timerNav p{
+      font-size: 16px;
+      padding: 5px;
+      color: white;
+      text-decoration: none;
+      display: inline;
+    }
+    .timerNav p.active{
+      background-color: var(--main-color);
+      border-radius: 10px;
+      transition: all .5s ease-in-out;
+    }
+    .timerNav p:hover{
+      text-decoration: underline;
+      border-radius: 10px;
+    }
+    .timerNav p:hover.active{
+      text-decoration: none;
+    }
+    /* Timer */
+    #timer{
+      text-align: center;
+      background-color: var(--hover-color);
+      border-radius: 10px;
+      transition: all .5s ease-in-out;
+    }
+    
+    #timer button{
+      text-decoration: none;
+      color: var(--main-color);
+      background-color: white;
+      font-size: 16px;
+      font-weight: bolder;
+      margin-bottom: 15px;
+      padding: 5px 10px;
+      transition: all .5s ease-in-out;
+    }
+    #clock{
+      font-size: 100px;
+      font-weight: bolder;
+      margin: 25px;
+    }
+    
+    /* The switch - the box around the slider */
+    .switch {
+      position: relative;
+      display: block;
+      visibility: hidden;
+      width: 60px;
+      height: 34px;
+    }
+    
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    /* The slider */
+    .slider {
+      position: absolute;
+      visibility: hidden;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+    
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+    
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    
+    /* Remove margins and padding from the list */
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Style the list items */
+    ul li {
+      cursor: pointer;
+      position: relative;
+      padding: 12px 8px 12px 35px;
+      background: #eee;
+      font-size: 16px;
+      transition: 0.5s;
+      list-style: none;
+      color: var(--main-color);
+      font-weight: bolder;
+      text-align: left;
+    
+    
+      /* make the list items unselectable */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* Set all odd list items to a different color (zebra-stripes) */
+    ul li:nth-child(odd) {
+      background: #f9f9f9;
+    }
+    
+    /* Darker background-color on hover */
+    ul li:hover {
+      background: #ddd;
+    }
+    
+    /* When clicked on, add a background color and strike out text */
+    ul li.checked {
+      background: #888;
+      color: #fff;
+      text-decoration: line-through;
+    }
+    
+    /* Add a "checked" mark when clicked on */
+    ul li.checked::before {
+      content: '';
+      position: absolute;
+      border-color: #fff;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      top: 10px;
+      left: 16px;
+      transform: rotate(45deg);
+      height: 15px;
+      width: 7px;
+    }
+    
+    /* Style the close button */
+    .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 12px 16px 12px 16px;
+    }
+    .close:hover {
+      background-color: #f44336;
+      color: white;
+    }
+    
+    
+    /* Style the input */
+    input {
+      margin-bottom: 2vw;
+      border-color: white;
+      border-width: 2px;  font-size: 20px;
+      color: white;
+      background-color: var(--main-color);
+      transition: all .5s ease-in-out;
+    }
+    ::placeholder{
+      color: white;
+    }
+    #addBtn{
+      text-decoration: none;
+      border-color: white;
+      border-width: 2px;
+      color: white;
+      background-color: var(--main-color);
+      transition: all .5s ease-in-out;
+      font-size: 16px;
+    }
+    /*Media Queries*/
+    @media screen and (max-width: 1980px){
+      #help{
+        padding:1vw;
+      }
+      .topnav i{
+        top: 1vw;
+        right: 1vw;
+      }
+      #timer button{
+        padding: .5vw 1vw;
+      }
+    }
+    
+    
+    
+    /* The Modal (background) */
+    .modal {
+      display: none; 
+      color:var(--main-color);
+      position: fixed; 
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    }
+    
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: var(--main-color);
+      margin: 15% auto; 
+      padding: 20px;
+      border: 1px solid #888;
+      border-radius: 5px;
+      width: 80%; 
+    }
+    .modal-content p{
+      background-color: white;
+      padding: 2vw;
+      border-radius: 5px;
+    }
+    .modal-content h2{
+      color: white;
+      margin: 0;
+    }
+    .modal-content h4{
+      color: white;
+      margin: 0;
+    }
+    </style>
   </head>
   <body>
     <div class="topnav">
@@ -51,6 +359,6 @@
         <li class="checked">Check Them Off When Complete</li>
       </ul>
     </div>
-    <script type="module" src="/main.js"></script>
+    <script src="/main.js"></script>
   </body>
 </html>

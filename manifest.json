@@ -1,0 +1,14 @@
+{
+
+    "manifest_version": 3,
+    "name": "Todoro",
+    "version": "1.0.0",
+  
+    
+    "action": {
+        "default_icon": "icon.png",
+        "default_popup": "index.html"
+        },
+    "description": "Todoro is a pomodoro timer & To-Do list.",
+    "icons": {"128": "icon.png"}
+}
