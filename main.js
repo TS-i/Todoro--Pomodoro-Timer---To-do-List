@@ -179,12 +179,3 @@ function newItem() {
     }
   }
 }
-
-// Save Timer state on popup close
-chrome.storage.sync.set({ "yourBody": "myBody" }, function(){
-  //  A data saved callback omg so fancy
-});
-
-chrome.storage.sync.get(/* String or Array */["yourBody"], function(items){
-  //  items = [ { "yourBody": "myBody" } ]
-});
